@@ -1,0 +1,6 @@
+pane	1	0	:nvim	0	:-	0	:/home/ubuntu	1	zsh	:
+pane	1	0	:nvim	0	:-	1	:/home/ubuntu/.tmux	0	zsh	:
+pane	1	1	:zsh	1	:*	0	:/home/ubuntu	1	zsh	:
+window	1	0	0	:-	92f2,190x49,0,0{95x49,0,0,3,94x49,96,0,5}
+window	1	1	1	:*	d0c3,190x49,0,0,6
+state	1	

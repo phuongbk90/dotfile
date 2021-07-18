@@ -1,0 +1,5 @@
+pane	0	0	:nvim conf	0	:-	0	:/home/ubuntu/.config/nvim	1	nvim	:nvim nvim
+pane	0	1	:zsh	1	:*	0	:/home/ubuntu	1	zsh	:
+window	0	0	0	:-	d0bd,190x49,0,0,0
+window	0	1	1	:*	d0bf,190x49,0,0,2
+state	0	
