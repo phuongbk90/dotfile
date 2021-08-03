@@ -2,6 +2,7 @@ export TERM="xterm-256color" # This sets up colors properly
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:/usr/local/go/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/ubuntu/.oh-my-zsh"
@@ -11,6 +12,7 @@ export ZSH="/home/ubuntu/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="agnoster"
+#ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -116,13 +118,26 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias s="subl"
+alias f="nautilus"
 alias vi=nvim
-alias zshconf="vi ~/.zshrc"
-alias ohmyzsh="vi ~/.oh-my-zsh"
+alias npp="notepad-plus-plus"
+alias hex="wxHexEditor"
+
 alias ls="exa --group-directories-first"
 alias lsp="stat -c "%a %n""
-alias cat="bat"
+alias cat='bat --paging=never'
 alias tree="tree -f -L 2"
+
+alias zshconf="vi ~/.zshrc"
+alias ohmyzsh="vi ~/.oh-my-zsh"
+
+if [[ "$TERM_PROGRAM" == 'vscode' ]]; then
+  alias 'rg'='rg --smart-case --hidden --no-heading --column'
+else
+  alias 'rg'='rg --smart-case --hidden'
+fi
 
 # FZF Configuration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -146,6 +161,13 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
+# using ripgrep combined with preview
+# find-in-file - usage: fif <searchTerm>
+fif() {
+  if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+  rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
+}
+
 ### Fix slowness of pastes with zsh-syntax-highlighting.zsh
 pasteinit() {
   OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
@@ -159,3 +181,8 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 ### Fix slowness of pastes
 eval $(thefuck --alias)
+
+#SDK
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/xp/.sdkman"
+[[ -s "/home/xp/.sdkman/bin/sdkman-init.sh" ]] && source "/home/xp/.sdkman/bin/sdkman-init.sh"
