@@ -20,7 +20,8 @@ asdf plugin-add erlang thtps://github.com/asdf-vm/asdf-erlang.git
 https://adoptingerlang.org/docs/development/setup/
 
 sudo apt install gcc-7
-asdf global erlang 17.0
+
+env CC=gcc-7 asdf install erlang 17.0asdf global erlang 17.0
 
 // Install openssl
 git clone git@github.com:openssl/openssl.git --branch OpenSSL_1_0_2-stable
