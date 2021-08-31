@@ -65,3 +65,5 @@ https://github.com/tmux-plugins/tpm
 Ranger 
 ~/.config/ranger
 
+imwheel
+https://www.youtube.com/watch?v=vihUzbK294o
