@@ -21,10 +21,7 @@ https://adoptingerlang.org/docs/development/setup/
 
 sudo apt install gcc-7
 
-env CC=gcc-7 asdf install erlang 17.0
-asdf global erlang 17.0
-
-// Install openssl
+// Install openssl Tạo folder ${HOME}/Downloads/01_Tool/openssl
 git clone git@github.com:openssl/openssl.git --branch OpenSSL_1_0_2-stable
 cd openssl/
 mkdir __result
@@ -35,3 +32,7 @@ make install INSTALL_PREFIX="${HOME}/Downloads/01_Tool/openssl/__result"
 
 // Export variable
 export KERL_CONFIGURE_OPTIONS="--disable-debug --disable-silent-rules --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-wx --with-ssl=${HOME}/Downloads/01_Tool/openssl/__result/${HOME}/Downloads/01_Tool/openssl/"
+
+// Install erlang 17
+env CC=gcc-7 asdf install erlang 17.0
+asdf global erlang 17.0
