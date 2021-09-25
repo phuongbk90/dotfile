@@ -12,4 +12,12 @@ endif
 
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'palenight'
+
+syntax on
 colorscheme material
+
+" checks if your terminal has 24-bit color support
+if (has("termguicolors"))
+    set termguicolors
+    hi LineNr ctermbg=NONE guibg=NONE
+endif

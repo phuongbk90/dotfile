@@ -16,8 +16,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
     " OneDark theme
-    Plug 'joshdick/onedark.vim'
+    "Plug 'joshdick/onedark.vim'
     Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+    "Plug 'NLKNguyen/papercolor-theme' " https://github.com/NLKNguyen/papercolor-theme
     " Airline plugin and themes
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -31,4 +32,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Tab bar    
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'romgrk/barbar.nvim'
+    
+    "Erlang
+    Plug 'vim-erlang/vim-erlang-runtime'
+    Plug 'vim-erlang/vim-erlang-compiler'
+    Plug 'vim-erlang/vim-erlang-omnicomplete'
+    Plug 'vim-erlang/vim-erlang-tags'
     call plug#end()
